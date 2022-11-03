@@ -34,8 +34,11 @@ def snykData = [
     'openfl-tutorials_interactive_api_pytorch_tinyimagenet_envoy': 'openfl-tutorials/interactive_api/PyTorch_TinyImageNet/envoy/requirements.txt'
 ]
 pipeline {
-    agent { 
-        label 'rbhe'
+    agent {
+        label common.baseNode()
+    }
+    options {
+        disableConcurrentBuilds()
     }
     stages {
         stage('Build') {
